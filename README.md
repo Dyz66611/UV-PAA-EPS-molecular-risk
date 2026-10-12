@@ -9,10 +9,8 @@ This package contains FT-ICR-MS molecular-formula data, formula-to-SMILES mappin
 ├── code/                         ECOSAR labeling, molecular-formula difference matching, model validation, and XGBoost/SHAP scripts
 ├── config/model_configuration.json
 ├── data/
-│   ├── Raw_FT_ICR_MS_Data/         0min.xlsx, 10min.xlsx, 30min.xlsx, 60min.xlsx
 │   ├── Smiles_Mapping_Data/       Three formula_smiles_ranked_summary_*min.xlsx files
 │   ├── RDKit_Calculation_Data/    Three formula_smiles_rdkit_descriptors_*min.xlsx files
-│   ├── ECOSAR_Toxicity_Valid_Data/ECOSAR_Toxicity_Valid_Data.xlsx
 │   └── Supplementary_DFT_Data/Supplementary_DFT.xlsx
 ├── docs/                          File guide and data dictionary
 ├── environment.yml
