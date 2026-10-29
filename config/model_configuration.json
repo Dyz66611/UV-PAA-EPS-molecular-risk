@@ -8,7 +8,7 @@
   },
   "risk_cutoff_mg_L": 10.0,
   "risk_rule": "High-risk if final effect concentration <= 10 mg/L; Low-risk if > 10 mg/L",
-  "labels_source": "stored in data/ECOSAR_Toxicity_Valid_Data/ECOSAR_Toxicity_Valid_Data.xlsx, sheet model_input; used as provided",
+  "labels_source": "User-provided model-input table selected with --input_file; not included in this repository. For Excel, model_input is preferred when present, otherwise the first sheet is used unless --sheet_name is specified. Labels are used as provided.",
   "test_size": 0.2,
   "random_state": 42,
   "stratified_split": true,
