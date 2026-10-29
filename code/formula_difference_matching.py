@@ -1,4 +1,3 @@
-```python
 """
 Match molecular-formula differences between precursor and product formulas.
 
@@ -232,4 +231,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-```

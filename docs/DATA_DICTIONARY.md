@@ -1,10 +1,10 @@
 # Data dictionary
 
-This dictionary describes the fields actually present in the packaged workbooks. Exact column lists are provided below; original spelling and capitalization are preserved.
+This dictionary describes the bundled mapping, RDKit, and DFT workbooks, and retains historical field definitions for the raw FT-ICR-MS and final valid model-input workbooks removed on 2026-10-12. Those removed workbooks are not included; any inputs needed for analysis must be provided by the user as described in the README. Exact column lists below preserve the original spelling and capitalization.
 
 ## FT-ICR-MS time-point data
 
-Location: `data/Raw_FT_ICR_MS_Data/`. Each row is a formula/peak record at the time indicated by the filename.
+Historical location (removed; not included): `data/Raw_FT_ICR_MS_Data/`. Each row was a formula/peak record at the time indicated by the filename.
 
 | Fields | Description |
 |---|---|
@@ -58,7 +58,7 @@ Location: `data/RDKit_Calculation_Data/`, sheet `rdkit_descriptors`. The first 2
 
 ## Final valid data and risk labels
 
-Location: `data/ECOSAR_Toxicity_Valid_Data/ECOSAR_Toxicity_Valid_Data.xlsx`, sheet `model_input`.
+Historical location (removed; not included): `data/ECOSAR_Toxicity_Valid_Data/ECOSAR_Toxicity_Valid_Data.xlsx`, sheet `model_input`. These fields document the former table. For current analysis, supply your own model-input table via `--input_file`; the README describes the script's required labels and eligible predictors.
 
 | Field/group | Description |
 |---|---|
@@ -76,7 +76,7 @@ Elemental suffixes `nC`, `nH`, `nO`, `nN`, `nS` denote counts. `ExactMass_formul
 
 The model uses the stored labels directly. Its default predictors are eligible numerical source and target descriptors; label fields are screened out. Stage and delta columns remain available as accompanying information. Training-set median imputation is performed by the model script when predictor values are blank.
 
-The ECOSAR labeling script implements High-risk for the final representative effect concentration ≤10 mg/L and Low-risk for >10 mg/L. Concentration processing is described in the README; the final valid workbook supplies the risk labels for modeling.
+The ECOSAR labeling script implements High-risk for the final representative effect concentration ≤10 mg/L and Low-risk for >10 mg/L. Concentration processing is described in the README; users must supply the risk labels in their model-input table. The labeling output alone is not a complete source/target descriptor table.
 
 ## DFT records
 
@@ -93,9 +93,9 @@ Location: `data/Supplementary_DFT_Data/Supplementary_DFT.xlsx`.
 
 ## Exact column lists
 
-The following lists follow the column order in the supplied workbooks. Workbooks in the same group have the same column names.
+The following lists follow the column order in the bundled workbooks or, for FT-ICR-MS and final valid data, the historical workbooks no longer included. Workbooks in the same group have the same column names.
 
-### FT-ICR-MS: all four time points
+### FT-ICR-MS: all four time points (historical; not included)
 
 `mSigma`, `ObservedIntens`, `ObservedM_z`, `calc_M_z`, `errMDa`, `errPpm`, `sumFormula`, `C`, `H`, `N`, `O`, `S`, `H1`, `HCraito`, `OCraito`, `CN2`, `dbe_o`, `NSP`, `abserrPpm`, `sumintens`, `relativeintens`, `avemass`, `aimod`, `dbe`, `nosc`, `kmdch2`, `nkmch2`, `kmdh2`, `nkmh2`, `kmdh2o`, `nkmh2o`, `kmdo`, `nkmo`, `kmdcoo`, `nkmcoo`.
 
@@ -107,7 +107,7 @@ The following lists follow the column order in the supplied workbooks. Workbooks
 
 `original_order`, `sumFormula`, `formula`, `top1_cid`, `cid_order`, `top1_smiles`, `returned_formula`, `top1_inchikey`, `rdkit_valid`, `formal_charge`, `has_metal`, `exact_formula_match`, `neutral_preferred`, `nonmetal_preferred`, `has_smiles`, `rank_score`, `candidate_rank`, `candidate_count_total`, `valid_candidate_count`, `matched`, `confidence_level`, `canonical_smiles_rdkit`, `MolWt`, `ExactMolWt`, `MolLogP`, `TPSA`, `HeavyAtomCount`, `NumHAcceptors`, `NumHDonors`, `NumRotatableBonds`, `RingCount`, `NumAromaticRings`, `FractionCSP3`, `AtomCount_C`, `AtomCount_N`, `AtomCount_O`, `AtomCount_S`, `AtomCount_P`, `HeteroAtomCount`, `FormalCharge`, `BertzCT`.
 
-### Final valid data: model_input
+### Final valid data: model_input (historical; user-provided input required)
 
 `global_pair_id`, `stage`, `Target_risk_label_binary`, `y_target_risk_binary`, `stage_order`, `Source_nC`, `Source_nH`, `Source_nO`, `Source_nN`, `Source_nS`, `Source_ExactMass_formula`, `Source_H_C`, `Source_O_C`, `Source_N_C`, `Source_S_C`, `Source_DBE`, `Source_DBE_C`, `Source_AI_mod`, `Source_NOSC`, `Source_MolLogP`, `Source_TPSA`, `Source_NumHAcceptors`, `Source_NumHDonors`, `Source_NumRotatableBonds`, `Source_RingCount`, `Source_NumAromaticRings`, `Source_FractionCSP3`, `Source_HeteroAtomCount`, `Source_FormalCharge`, `Source_BertzCT`, `Target_nC`, `Target_nH`, `Target_nO`, `Target_nS`, `Target_ExactMass_formula`, `Target_H_C`, `Target_O_C`, `Target_S_C`, `Target_DBE`, `Target_DBE_C`, `Target_AI_mod`, `Target_NOSC`, `Target_MolLogP`, `Target_TPSA`, `Target_NumHAcceptors`, `Target_NumHDonors`, `Target_NumRotatableBonds`, `Target_RingCount`, `Target_NumAromaticRings`, `Target_FractionCSP3`, `Target_HeteroAtomCount`, `Target_FormalCharge`, `Target_BertzCT`, `delta_nC`, `delta_nH`, `delta_nO`, `delta_nN`, `delta_nS`, `delta_ExactMass_formula`, `delta_H_C`, `delta_O_C`, `delta_N_C`, `delta_S_C`, `delta_DBE`, `delta_DBE_C`, `delta_AI_mod`, `delta_NOSC`, `delta_MolLogP`, `delta_TPSA`, `delta_NumHAcceptors`, `delta_NumHDonors`, `delta_NumRotatableBonds`, `delta_RingCount`, `delta_NumAromaticRings`, `delta_FractionCSP3`, `delta_FormalCharge`, `delta_BertzCT`, `stage_0-10`, `stage_10-30`, `stage_30-60`.
 
